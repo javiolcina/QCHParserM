@@ -1,0 +1,33 @@
+Exemple de log4j amb maven
+https://www.mkyong.com/logging/log4j-hello-world-example/
+
+Eclipse Che i Maven
+https://eclipse.org/che/docs/tutorials/maven/index.html
+
+
+*** Sistemes de lleguatge natural 
+- prettytime http://www.ocpsoft.org/prettytime/nlp/
+
+
+*** Accions realitzades
+- Configuració del projecte Window > Preferences > Java > Installed JREs
+	- Buscar al directori a on està instlat el jdk per afegir-ho
+	- https://stackoverflow.com/questions/19655184/no-compiler-is-provided-in-this-environment-perhaps-you-are-running-on-a-jre-ra
+	
+
+	
+http://tika.apache.org/
+	- The Apache Tika™ toolkit detects and extracts metadata and text from over a 
+		thousand different file types (such as PPT, XLS, and PDF)	
+		
+Municipios		
+https://josepablosarco.wordpress.com/2009/02/03/performance-testing-con-jmeter-paso-por-paso-para-grabar-escenarios/
+
+Diccionari
+http://escrable.montane.cat/diccionari/	
+
+NPL
+	https://stanfordnlp.github.io/CoreNLP/
+
+Simmetrics
+	- http://www.atetric.com/atetric/javadoc/com.github.mpkorstanje/simmetrics-core/4.1.0/	

@@ -1,0 +1,28 @@
+*******************************************************************************
+** RELEASES NOTES *************************************************************
+*******************************************************************************
+repository Maven C:\Users\jaolve\.m2
+*** TEMES PENDENTS ************************************************************
+- Enganxar amb repositori de codi
+- Buscar/implementar indexOf ignoreCase per a localitats, etc.
+- 
+
+
+
+*** ACTIVITAT *****************************************************************
+18/10/2017
+- Instalació Eclipse Java EE Developer Tool 3.8.2
+	- para tractar millor Json y pàgines web
+17/10/2017
+- Identificació d'artistes
+- Municipis carregats de fitxer ministeri
+9/8/2017
+- Treballat en un cicle minim de construcció d'event a partir d'una secció
+
+*** MODULS ********************************************************************
+Simmetrics
+	- http://www.atetric.com/atetric/javadoc/com.github.mpkorstanje/simmetrics-core/4.1.0/
+	- https://github.com/mpkorstanje/simmetrics
+		- Al añadir la dependencia por maven también se han añadido 
+			- guava de google https://github.com/google/guava
+			- commons-codec

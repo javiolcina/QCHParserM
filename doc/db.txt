@@ -1,0 +1,23 @@
+Mongodb
+https://docs.mongodb.com/manual/tutorial/install-mongodb-enterprise-on-windows/
+
+Mongodb+Java
+https://www.mongodb.com/blog/post/getting-started-with-mongodb-and-java-part-i
+
+http://mongodb.github.io/mongo-java-driver/3.4/driver/getting-started/quick-start/
+
+Morphia
+http://mongodb.github.io/morphia/1.3/getting-started/quick-tour/
+
+
+
+Altres urls
+http://mongodb.github.io/mongo-java-driver/3.4/driver/getting-started/quick-start/
+https://docs.mongodb.com/manual/core/databases-and-collections/
+https://docs.mongodb.com/manual/mongo/
+https://docs.mongodb.com/manual/reference/configuration-options/
+https://docs.mongodb.com/compass/current/connect/
+http://mongodb.github.io/morphia/1.3/getting-started/quick-tour/
+http://mongodb.github.io/morphia/1.3/guides/annotations/#entity
+http://juliuskrah.com/blog/2017/05/14/crud-operations-with-morphia/
+https://github.com/mongodb/morphia/blob/1.3.x/morphia/src/examples/java/org/mongodb/morphia/example/QuickTour.java
