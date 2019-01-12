@@ -32,7 +32,7 @@ public class ConectMongoDB {
 			System.out.println("Collection:" + collection.getFullName() + " " + collection.getCount() );
 			
 			DBCursor urlsCursor =  collection.find();
-			//System.out.println("URL:" + urlsCursor.one().get("url"));
+			//System.out.println("WebContent:" + urlsCursor.one().get("url"));
 			
 			Iterator<DBObject> i = urlsCursor.iterator();
 

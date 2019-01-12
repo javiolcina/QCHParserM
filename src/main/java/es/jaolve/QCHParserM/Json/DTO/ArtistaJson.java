@@ -5,7 +5,7 @@ import java.util.Vector;
 
 import org.apache.log4j.Logger;
 
-import es.jaolve.QCHParserM.paraules.SintagmaUtils;
+import es.jaolve.QCHParserM.cor.paraules.SintagmaUtils;
 
 public class ArtistaJson {
 	

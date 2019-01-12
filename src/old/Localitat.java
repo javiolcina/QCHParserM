@@ -1,9 +1,11 @@
-package es.jaolve.QCHParserM.localitats;
+package es.jaolve.QCHParserM.cor.localitats;
 
 import java.util.StringTokenizer;
 import java.util.Vector;
 
-import es.jaolve.QCHParserM.paraules.SintagmaUtils;
+import es.jaolve.QCHParserM.cor.paraules.SintagmaUtils;
+import es.jaolve.QCHParserM.input.municipis.MunicipioJson;
+
 /**
  * Representa una localitat per mapejar-la al JSON i
  * afegeix funcionalitat.
@@ -18,7 +20,7 @@ public class Localitat {
 	private String id 	= null;
 	//Altres noms per els que es coneix la localitat
 	private Vector<String> sinonims = null;
-	//Llocs concrets dins de la localitat
+	//LlocsQCH concrets dins de la localitat
 	private Vector<String> llocs = null;
 	
 
@@ -105,7 +107,7 @@ public class Localitat {
 		if (nom.equalsIgnoreCase(nomx))
 		{
 			result = true;
-			System.out.println(" **** Localitat detectada");
+			System.out.println(" **** LocalitatJPA detectada");
 		}
 		else
 		{
@@ -115,7 +117,7 @@ public class Localitat {
 				if ( sinonims.get(i).equalsIgnoreCase(nomx) )
 				{
 					result = true;				
-					System.out.println(" *** Localitat detectada");
+					System.out.println(" *** LocalitatJPA detectada");
 				}	
 			}
 		}

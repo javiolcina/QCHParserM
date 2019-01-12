@@ -1,7 +1,9 @@
 package es.jaolve.QCHParserM.MongoDB.DTO;
 
 import java.util.List;
+import java.util.Vector;
 
+import org.apache.log4j.Logger;
 import org.mongodb.morphia.Datastore;
 import org.mongodb.morphia.Morphia;
 import org.mongodb.morphia.query.Query;
@@ -13,6 +15,7 @@ import com.mongodb.MongoClientURI;
 
 import es.jaolve.QCHParserM.MongoDB.JPA.Artiste;
 import es.jaolve.QCHParserM.MongoDB.JPA.Localitat;
+import es.jaolve.QCHParserM.input.localitats.LlocsQCH;
 
 /**
  * Funcions d'artistes en la base de dades Mongo
@@ -21,31 +24,41 @@ import es.jaolve.QCHParserM.MongoDB.JPA.Localitat;
  *
  */
 public class LocalitatMongo extends AbstractMongoDto {
+	
+	final static Logger logger 		= Logger.getLogger(LocalitatMongo.class);
 
 
-	/**
-	 * 
-	 */
-	public void getLocalitats()
+	public List <Localitat> getLocalitats()
 	{
+		List<es.jaolve.QCHParserM.MongoDB.JPA.Localitat> localitatsResulta = new Vector<es.jaolve.QCHParserM.MongoDB.JPA.Localitat>();
+		
 		try {
 
 			final Query<es.jaolve.QCHParserM.MongoDB.JPA.Localitat> query = datastore.createQuery(es.jaolve.QCHParserM.MongoDB.JPA.Localitat.class);
-			final List<es.jaolve.QCHParserM.MongoDB.JPA.Localitat> artistes = query.asList();
+			localitatsResulta = query.asList();
 			
-			System.out.println("Localitats:"+artistes.size());
+			logger.debug("Localitats:"+localitatsResulta.size());
 			
 		} catch (Exception e) {
-			System.out.println("Problema obtenint localitats");
-			System.out.println("Exception:"+e);
+			logger.debug("Problema obtenint localitats");
+			logger.debug("Exception:"+e);
 		}
-		
+		return localitatsResulta;
 	}
 	
-	/**
-	 * 
-	 */
-	public void localitatToMongo()
+	public void localitatToMongo(Localitat l)
+	{
+		try {
+			datastore.ensureIndexes();
+			datastore.save(l);
+			
+		} catch (Exception e) {
+			System.out.println("Problema insertant localitats");
+			System.out.println("Exception:"+e);
+		}
+	}
+	
+	public void localitatToMongoExample()
 	{
 		try {
 

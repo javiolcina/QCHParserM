@@ -1,4 +1,4 @@
-package es.jaolve.QCHParserM.garitos;
+package es.jaolve.QCHParserM.input.garitos;
 
  
 import es.jaolve.QCHParserM.MongoDB.DTO.GaritosMongo;

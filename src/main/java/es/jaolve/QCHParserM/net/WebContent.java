@@ -1,19 +1,18 @@
-package es.jaolve.QCHParserM.url;
+package es.jaolve.QCHParserM.net;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 
-import es.jaolve.QCHParserM.net.JGet;
 import es.jaolve.QCHParserM.net.html.Html2Text;
 
 /**
- * Classe que permet a partir d'un url obtindre el contingut en brut d'eixe URL
+ * Classe que permet a partir d'un url obtindre el contingut en brut d'eixe WebContent
  * 
  * @author jaolve
  *
  */
-public class URL {
+public class WebContent {
 
 	// atributs
 	private String url = null;
@@ -24,13 +23,13 @@ public class URL {
 	 * 
 	 * @param url
 	 */
-	public URL(String url) {
+	public WebContent(String url) {
 		super();
 		this.url = url;
 	}
 
 	/**
-	 * Torna el contingut d'una adreça URL
+	 * Torna el contingut d'una adreça WebContent
 	 * 
 	 * @return
 	 */
@@ -53,7 +52,7 @@ public class URL {
 	
 
 	public static void main(String[] args) {
-		URL u = new URL("https://www.uv.es");
+		WebContent u = new WebContent("https://www.uv.es");
 		System.out.println(u.getContingut());
 
 	}

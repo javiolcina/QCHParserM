@@ -1,4 +1,4 @@
-package es.jaolve.QCHParserM;
+package es.jaolve.QCHParserM.input;
 
 /**
  * Classe per a la gestió dels fitxers de la aplicació

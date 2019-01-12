@@ -1,4 +1,4 @@
-package es.jaolve.QCHParserM.localitats;
+package es.jaolve.QCHParserM.input.municipis;
 
 /**
  * Representa el municipi tal qual ve del fitxer del ministeri JSON

@@ -15,6 +15,8 @@ import org.simmetrics.simplifiers.Simplifier;
 import org.simmetrics.simplifiers.Simplifiers;
 import org.simmetrics.tokenizers.Tokenizers;
 
+import es.jaolve.QCHParserM.cor.paraules.TextUtils;
+
 public class ParaulesPercentatgeCoincidencia {
 
 	public static void main(String[] args) {

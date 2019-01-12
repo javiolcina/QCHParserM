@@ -13,7 +13,7 @@ import es.jaolve.QCHParserM.MongoDB.DTO.ArtistesMongoDto;
 import es.jaolve.QCHParserM.MongoDB.JPA.Artiste;
 import es.jaolve.QCHParserM.cor.artistes.ArtistaParsing;
 import es.jaolve.QCHParserM.cor.artistes.Artistes;
-import es.jaolve.QCHParserM.localitats.Localitats;
+import es.jaolve.QCHParserM.cor.localitats.Localitats;
 import es.jaolve.QCHParserM.localitats.generador.GeneradorLlocsLocalitats;
 
 /**
@@ -81,7 +81,10 @@ public class QCHParser
      * Initzalització del parser
      */
 	private static void init() {
-        logger.info( "QCHParser: Localitats carregades TOTs,PV,C,VIES,Llocs: " +Arrays.toString(Localitats.load( ))); 
+        logger.info( "QCHParser: Localitats carregades TOTs,PV,CAT,IB"+
+        		Arrays.toString(Localitats.loadLocalitatsFromMunicipiosFile( ))); 
+        logger.info( "QCHParser: VIES : " +Localitats.loadTipusVies()); 
+        logger.info( "QCHParser: LlocsQCH: " +Localitats.loadTipusVies());
         logger.info( "QCHParser: Artistes: " +Artistes.carregaArtistaFromMongo() );
         if (Params.DEBUG_ARTISTES_JPA) Artistes.artistesToString();
         //logger.info( "QCHParser: AltresOrigents carregades: " +Artistes.carregaArtistaFromMongo() );

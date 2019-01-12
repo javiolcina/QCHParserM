@@ -37,16 +37,23 @@ public class ArtistesMongoDto extends AbstractMongoDto{
 			return artistes;
 
 		} catch (Exception e) {
-			System.out.println("Problema getArtistes");
-			System.out.println("Exception:"+e);
+			logger.error("Problema getArtistes"+e.getMessage());
 			return null;
 		}
 	}
 	
-	/**
-	 * 
-	 */
-	public void artistaToMongo()
+	public void artistaToMongo(Artiste a)
+	{
+		try {
+			datastore.save(a);
+			datastore.ensureIndexes();
+		} catch (Exception e) {
+			System.out.println("Problema passant artiesta a Mongo");
+			System.out.println("Exception:"+e);
+		}
+	}
+
+	public void artistaToMongoExample()
 	{
 		try {
 			

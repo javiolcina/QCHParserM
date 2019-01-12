@@ -1,18 +1,16 @@
-package es.jaolve.QCHParserM.localitats;
+package es.jaolve.QCHParserM.cor.localitats;
 
 import java.io.BufferedReader;
 import java.io.DataInputStream;
 import java.io.FileInputStream;
 import java.io.InputStreamReader;
-import java.util.HashSet;
-import java.util.Iterator;
 import java.util.StringTokenizer;
 import java.util.Vector;
 
 import org.apache.log4j.Logger;
 
-import es.jaolve.QCHParserM.Fitxers;
-import es.jaolve.QCHParserM.paraules.SintagmaUtils;
+import es.jaolve.QCHParserM.cor.paraules.SintagmaUtils;
+import es.jaolve.QCHParserM.input.Fitxers;
 
 /**
  * Funcions d'ultilitat de Localitats
@@ -42,7 +40,7 @@ public class LocalitatsUtils {
 	 * 
 	 * @return
 	 */
-	public static Vector<String> carregarVies()
+	public static Vector<String> carregarTipusVies()
 	{
 		Vector<String> vies = new Vector<String>();
 		try
@@ -60,9 +58,10 @@ public class LocalitatsUtils {
 			}
 			return vies ;
 		}catch (Exception e) {
-			logger.error("Problema carregant fitxer");
+			logger.error("Problema carregant fitxer Tipus de vies:"+Fitxers.VIES_FILE);
 			return vies;
 		}
+
 	}
 	
 	

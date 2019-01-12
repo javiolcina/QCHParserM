@@ -1,5 +1,6 @@
 package es.jaolve.QCHParserM.localitats;
 
+import es.jaolve.QCHParserM.cor.localitats.LocalitatsUtils;
 import junit.framework.TestCase;
 
 public class LocalitatsUtilrotarComProva extends TestCase {

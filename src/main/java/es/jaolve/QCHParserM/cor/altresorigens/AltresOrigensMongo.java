@@ -1,4 +1,4 @@
-package es.jaolve.QCHParserM.artistes.altresorigens;
+package es.jaolve.QCHParserM.cor.altresorigens;
 
 import java.util.List;
 

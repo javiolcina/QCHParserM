@@ -54,7 +54,7 @@ public class ConectMongoMorphia {
 			System.out.println("Collection:" + collection.getFullName() + " " + collection.getCount() );
 			
 			DBCursor urlsCursor =  collection.find();
-			System.out.println("URL:" + ((url)urls.get(0)));*/
+			System.out.println("WebContent:" + ((url)urls.get(0)));*/
 			
 			
 			

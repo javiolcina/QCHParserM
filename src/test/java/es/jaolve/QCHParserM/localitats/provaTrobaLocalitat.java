@@ -1,5 +1,7 @@
 package es.jaolve.QCHParserM.localitats;
 
+import es.jaolve.QCHParserM.cor.localitats.Localitats;
+
 /**
  * Prova para identificar localitats
  * 
@@ -14,7 +16,7 @@ public class provaTrobaLocalitat {
 		String resultado 	= null;
 		
 		//Carreguem 
-		Localitats.load();
+		Localitats.loadLocalitatsFromMunicipiosFile();
 		
 		if (Localitats.teLocalitat(texto) != null)
 			resultado = Localitats.teLocalitat(texto).getNom();

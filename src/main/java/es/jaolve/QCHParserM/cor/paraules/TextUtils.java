@@ -1,4 +1,4 @@
-package es.jaolve.QCHParserM.paraules;
+package es.jaolve.QCHParserM.cor.paraules;
 
 import java.util.Arrays;
 import java.util.HashSet;
@@ -170,7 +170,7 @@ public class TextUtils {
 	 * 
 	 * @return
 	 */
-	public static HashSet<String> filtraHashSetDeParaulesCurtes(HashSet in, int minimaLongitud)
+	public static HashSet<String> filtraHashSetDeParaulesCurtes(HashSet<String> in, int minimaLongitud)
 	{
 		HashSet<String> out = new HashSet<String>();
 		for (Iterator<String> iterator = in.iterator(); iterator.hasNext();) {

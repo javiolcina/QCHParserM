@@ -1,5 +1,7 @@
 package es.jaolve.QCHParserM.paraules;
 
+import es.jaolve.QCHParserM.cor.paraules.Sintagma;
+
 public class SintagmaProva {
 
 	public static void main(String[] args) {

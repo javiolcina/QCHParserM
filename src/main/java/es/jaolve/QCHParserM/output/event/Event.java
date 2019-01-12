@@ -1,4 +1,4 @@
-package es.jaolve.QCHParserM;
+package es.jaolve.QCHParserM.output.event;
 
 import java.util.Date;
 

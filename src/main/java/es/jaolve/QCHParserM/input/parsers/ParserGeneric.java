@@ -1,4 +1,4 @@
-package es.jaolve.QCHParserM.parsers;
+package es.jaolve.QCHParserM.input.parsers;
 
 import java.util.Date;
 import java.util.List;
@@ -6,15 +6,15 @@ import java.util.Vector;
 
 import org.apache.log4j.Logger;
 
-import es.jaolve.QCHParserM.Event;
 import es.jaolve.QCHParserM.MongoDB.JPA.Artiste;
+import es.jaolve.QCHParserM.MongoDB.JPA.Localitat;
 import es.jaolve.QCHParserM.cor.artistes.Artistes;
-import es.jaolve.QCHParserM.document.DocumentAbstract;
-import es.jaolve.QCHParserM.localitats.Localitat;
-import es.jaolve.QCHParserM.localitats.Localitats;
+import es.jaolve.QCHParserM.cor.localitats.Localitats;
+import es.jaolve.QCHParserM.input.document.DocumentAbstract;
+import es.jaolve.QCHParserM.output.event.Event;
 
 /**
- * Classe abstracta que modela tots els parsers
+ * Parser genèric
  * 
  * @author jaolve
  *

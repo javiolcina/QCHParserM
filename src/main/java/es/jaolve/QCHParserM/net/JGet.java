@@ -13,7 +13,7 @@ public class JGet
 {
 
 	/**
-	 * Obté el html s'un url
+	 * Obté el html d'un url
 	 * 
 	 * @param url
 	 * @return
@@ -57,7 +57,7 @@ public class JGet
 	}
 
 	/**
-	 * Obté el html s'un url
+	 * Obté el html d'un url
 	 * 
 	 * @param url
 	 * @return

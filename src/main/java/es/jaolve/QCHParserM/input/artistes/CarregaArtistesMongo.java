@@ -1,4 +1,4 @@
-package es.jaolve.QCHParserM.cor.artistes;
+package es.jaolve.QCHParserM.input.artistes;
 
 import es.jaolve.QCHParserM.MongoDB.DTO.ArtistesMongoDto;
 

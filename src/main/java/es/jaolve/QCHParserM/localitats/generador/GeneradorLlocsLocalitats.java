@@ -12,9 +12,9 @@ import org.apache.log4j.Logger;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
-import es.jaolve.QCHParserM.Fitxers;
-import es.jaolve.QCHParserM.localitats.Localitat;
-import es.jaolve.QCHParserM.localitats.Localitats;
+import es.jaolve.QCHParserM.MongoDB.JPA.Localitat;
+import es.jaolve.QCHParserM.cor.localitats.Localitats;
+import es.jaolve.QCHParserM.input.Fitxers;
 
 public class GeneradorLlocsLocalitats {
 
@@ -47,7 +47,7 @@ public class GeneradorLlocsLocalitats {
 				// Completar lloc
 				linies ++;
 			}
-			logger.debug("Trobades Llocs en localitat:"+troballes+"/"+linies);	
+			logger.debug("Trobades LlocsQCH en localitat:"+troballes+"/"+linies);	
 			//Close the input stream
 			in.close();
 			
@@ -59,7 +59,7 @@ public class GeneradorLlocsLocalitats {
 			
 			
 		}catch (Exception e){
-			System.err.println("Error: " + e.getMessage());
+			logger.error("Error: " + e.getMessage());
 		}
 
 	}

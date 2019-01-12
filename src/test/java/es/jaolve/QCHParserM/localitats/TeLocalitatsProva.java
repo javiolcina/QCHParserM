@@ -1,5 +1,6 @@
 package es.jaolve.QCHParserM.localitats;
 
+import es.jaolve.QCHParserM.cor.localitats.Localitats;
 import junit.framework.TestCase;
 
 public class TeLocalitatsProva     
@@ -12,7 +13,7 @@ public class TeLocalitatsProva
     	System.out.println("TEST."+this.getName());
 		
 		//Carreguem 
-		Localitats.load();
+		Localitats.loadLocalitatsFromMunicipiosFile();
 		assertEquals(texto, Localitats.teLocalitat(texto).getNom());
 		System.out.println(texto + " ---> " + Localitats.teLocalitat(texto).getNom());
     

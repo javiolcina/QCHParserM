@@ -1,4 +1,4 @@
-package es.jaolve.QCHParserM.document;
+package es.jaolve.QCHParserM.input.document;
 
 
 /**

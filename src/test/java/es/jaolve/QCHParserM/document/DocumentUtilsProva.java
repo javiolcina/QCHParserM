@@ -2,6 +2,8 @@ package es.jaolve.QCHParserM.document;
 
 import java.util.List;
 
+import es.jaolve.QCHParserM.input.document.DocumentUtils;
+
 public class DocumentUtilsProva {
 
     public static void main( String[] args )

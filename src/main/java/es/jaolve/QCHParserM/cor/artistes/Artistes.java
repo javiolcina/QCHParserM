@@ -8,14 +8,14 @@ import java.util.Vector;
 
 import org.apache.log4j.Logger;
 
-import es.jaolve.QCHParserM.Event;
 import es.jaolve.QCHParserM.Params;
 import es.jaolve.QCHParserM.MongoDB.DTO.ArtistesMongoDto;
 import es.jaolve.QCHParserM.MongoDB.JPA.Artiste;
-import es.jaolve.QCHParserM.document.DocumentAbstract;
+import es.jaolve.QCHParserM.input.document.DocumentAbstract;
+import es.jaolve.QCHParserM.input.parsers.ParserGeneric;
 import es.jaolve.QCHParserM.net.JGet;
 import es.jaolve.QCHParserM.net.html.Html2Text;
-import es.jaolve.QCHParserM.parsers.ParserGeneric;
+import es.jaolve.QCHParserM.output.event.Event;
 
 /**
  * Lógica de negoci del cor de QCHParser associada a artistes
@@ -138,7 +138,7 @@ public class Artistes {
 		    Class<?> classDoc;
 		    Class<?> classParser;
 			try {
-				classDoc = Class.forName("es.jaolve.QCHParserM.document.DocumentGeneric");
+				classDoc = Class.forName("es.jaolve.QCHParserM.input.document.DocumentGeneric");
 			    DocumentAbstract document = (DocumentAbstract) classDoc.newInstance();
 			    document.setMarcaSeparacio(artiste.getMarca_seccio());
 			    document.setParsing_ini(artiste.getParsing_ini());
@@ -146,7 +146,7 @@ public class Artistes {
 			    document.setContingut(text);
 			    if (Params.DEBUG_TEXT) logger.debug(document.getContingut());
 			    //logger.debug( "Text: "+document.getContingut() );
-			    classParser = Class.forName("es.jaolve.QCHParserM.parsers.ParserGeneric");
+			    classParser = Class.forName("es.jaolve.QCHParserM.input.parsers.ParserGeneric");
 			    ParserGeneric parser = (ParserGeneric) classParser.newInstance();
 			    parser.setDocument(document);
 		        List<Event> listaEventsBoti = parser.getEvents(artiste);

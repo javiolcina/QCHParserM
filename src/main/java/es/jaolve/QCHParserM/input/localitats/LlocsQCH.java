@@ -1,4 +1,4 @@
-package es.jaolve.QCHParserM.localitats;
+package es.jaolve.QCHParserM.input.localitats;
 
 import java.io.BufferedReader;
 import java.io.DataInputStream;
@@ -8,11 +8,11 @@ import java.util.Vector;
 
 import org.apache.log4j.Logger;
 
-import es.jaolve.QCHParserM.Fitxers;
+import es.jaolve.QCHParserM.input.Fitxers;
 
-public class Llocs {
+public class LlocsQCH {
 
-	final static Logger logger 		= Logger.getLogger(Llocs.class);
+	final static Logger logger 		= Logger.getLogger(LlocsQCH.class);
 	
 	/**
 	 * Carrega llocs
@@ -41,7 +41,7 @@ public class Llocs {
 			return llocs;
 			
 		}catch (Exception e){
-			System.err.println("Error: " + e.getMessage());
+			logger.error("Error: " + e.getMessage());
 			return llocs;
 		}
 

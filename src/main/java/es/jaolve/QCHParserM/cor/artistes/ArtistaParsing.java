@@ -6,7 +6,7 @@ import java.util.List;
 import org.apache.log4j.Logger;
 
 import es.jaolve.QCHParserM.MongoDB.JPA.Artiste;
-import es.jaolve.QCHParserM.paraules.SintagmaUtils;
+import es.jaolve.QCHParserM.cor.paraules.SintagmaUtils;
 
 
 /**

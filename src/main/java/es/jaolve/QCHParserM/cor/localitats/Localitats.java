@@ -1,4 +1,4 @@
-package es.jaolve.QCHParserM.localitats;
+package es.jaolve.QCHParserM.cor.localitats;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -13,9 +13,13 @@ import org.apache.log4j.Logger;
 
 import com.google.gson.Gson;
 
-import es.jaolve.QCHParserM.Fitxers;
-import es.jaolve.QCHParserM.paraules.Sintagma;
-import es.jaolve.QCHParserM.paraules.SintagmaUtils;
+import es.jaolve.QCHParserM.MongoDB.DTO.ArtistesMongoDto;
+import es.jaolve.QCHParserM.MongoDB.DTO.LocalitatMongo;
+import es.jaolve.QCHParserM.MongoDB.JPA.Localitat;
+import es.jaolve.QCHParserM.cor.paraules.SintagmaUtils;
+import es.jaolve.QCHParserM.input.Fitxers;
+import es.jaolve.QCHParserM.input.localitats.LlocsQCH;
+import es.jaolve.QCHParserM.input.municipis.MunicipioJson;
 
 public class Localitats {
 	
@@ -24,12 +28,14 @@ public class Localitats {
 	//Lista estática de localitats
 	private static List <Localitat> localitats 		= new Vector<Localitat>();
 	public static List <Localitat> localitatsPV  	= new Vector<Localitat>();
-	private static List <Localitat> localitatsC  	= new Vector<Localitat>();
+	private static List <Localitat> localitatsCat  	= new Vector<Localitat>();
+	private static List <Localitat> localitatsIB		= new Vector<Localitat>();
 	
-	private static List <String> llocsEnCru  		= new Vector<String>();
+	//private static List <String> llocsEnCru  		= new Vector<String>();
 
 	private static HashSet<String> codProvinciesPV = new HashSet<String>();
-	private static HashSet<String> codProvinciesC = new HashSet<String>();
+	private static HashSet<String> codProvinciesCat = new HashSet<String>();
+	private static HashSet<String> codProvinciesIB = new HashSet<String>();
 	
 	private static Vector<String> vies = new Vector<String>();
 	
@@ -39,10 +45,12 @@ public class Localitats {
 		codProvinciesPV.add("03"); //Alacant
 		codProvinciesPV.add("12"); //Castelló
 		
-		codProvinciesC.add("43"); //Tarragona
-		codProvinciesC.add("08"); //Barcelona
-		codProvinciesC.add("25"); //Leida
-		codProvinciesC.add("17"); //Girona
+		codProvinciesCat.add("43"); //Tarragona
+		codProvinciesCat.add("08"); //Barcelona
+		codProvinciesCat.add("25"); //Leida
+		codProvinciesCat.add("17"); //Girona
+		
+		codProvinciesCat.add("07"); //Balears
 	}
 	
 
@@ -72,18 +80,17 @@ public class Localitats {
 	
 	/**
 	 * Carrega les llistes de Localitats a partir de un JSON
+	 * Métode per a un càrrega inicial a partir del fitxer
 	 * 
 	 * @return
 	 */
-	public static int[] load()
+	public static int[] loadLocalitatsFromMunicipiosFile()
 	{
-		int[] results = new int[5];
+		int[] results = new int[4];
 		try
 		{
-			//Create a new Gson object
 	        Gson gson = new Gson();
 	        
-	        //Read the employee.json file
             BufferedReader br = new BufferedReader(  
                     new FileReader
                     (Fitxers.MUNICIPIOS_FILE));
@@ -95,14 +102,11 @@ public class Localitats {
            localitatsPV =  filtreLocalitats(localitats,codProvinciesPV);
            results[1] = localitatsPV.size();
            
-           localitatsC =  filtreLocalitats(localitats,codProvinciesC);
-           results[2] = localitatsC.size();
+           localitatsCat =  filtreLocalitats(localitats,codProvinciesCat);
+           results[2] = localitatsCat.size();
            
-           vies =  LocalitatsUtils.carregarVies();
-           results[3] = vies.size();
-           
-           llocsEnCru = Llocs.loadLlocs();
-           results[4] = llocsEnCru.size();
+           localitatsIB =  filtreLocalitats(localitats,codProvinciesIB);
+           results[3] = localitatsIB.size();
            
            return results;
 		}
@@ -111,6 +115,19 @@ public class Localitats {
             logger.error("Error carregant fitxer Municipis"+ e.toString());
             return results;
         }  
+	}
+	
+
+	public static int loadTipusVies()
+	{
+		int result = 0;
+
+		vies =  LocalitatsUtils.carregarTipusVies();
+		result  = vies.size();
+		   
+		logger.debug("loadTipusVies:"+result);
+		return result ;
+ 
 	}
 	
 	/**
@@ -210,7 +227,7 @@ public class Localitats {
 	 * @param llocStr
 	 * @return
 	 */
-	public static String teLlocEnBrut(String llocStr) {
+	/*public static String teLlocEnBrut(String llocStr) {
 		String resultado = null;
 
 		for (int i = 0; i < llocsEnCru.size() && resultado==null; i++) {
@@ -221,7 +238,7 @@ public class Localitats {
 		}
 	    
 	    return resultado;
-	}
+	}*/
 	
 	/**
 	 * Comprova si un token es carrer
@@ -257,6 +274,26 @@ public class Localitats {
 				localitatsPV.get(i).addLlocs(lloc);
 			i++;
 		}
+		
+	}
+
+	public static void buscaLlocsPerLocalitats() {
+		List <String> llocsEnCru = LlocsQCH.loadLlocs();
+
+		
+		for (String llocCru : llocsEnCru) {
+			/* Para cada localitat
+			 * for ({
+				
+			}*/
+		}
+		
+	}
+
+
+	public static void toMongo() {
+		LocalitatMongo localitatMongoDto = new LocalitatMongo();
+		localitatMongoDto.localitatToMongo(localitatsCat.get(5));
 		
 	}
 }

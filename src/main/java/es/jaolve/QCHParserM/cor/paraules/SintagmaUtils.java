@@ -1,4 +1,4 @@
-package es.jaolve.QCHParserM.paraules;
+package es.jaolve.QCHParserM.cor.paraules;
 
 import java.util.Arrays;
 import java.util.HashSet;
