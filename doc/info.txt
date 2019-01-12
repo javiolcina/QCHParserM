@@ -1,12 +1,11 @@
-Exemple de log4j amb maven
-https://www.mkyong.com/logging/log4j-hello-world-example/  
+
 
 Eclipse Che i Maven
 https://eclipse.org/che/docs/tutorials/maven/index.html
 
 
-*** Sistemes de lleguatge natural 
-- prettytime http://www.ocpsoft.org/prettytime/nlp/
+
+
 
 
 *** Accions realitzades
