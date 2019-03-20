@@ -11,7 +11,6 @@ import org.apache.log4j.Logger;
 
 import es.jaolve.QCHParserM.MongoDB.DTO.ArtistesMongoDto;
 import es.jaolve.QCHParserM.MongoDB.JPA.Artiste;
-import es.jaolve.QCHParserM.cor.artistes.ArtistaParsing;
 import es.jaolve.QCHParserM.cor.artistes.Artistes;
 import es.jaolve.QCHParserM.cor.localitats.Localitats;
 import es.jaolve.QCHParserM.localitats.generador.GeneradorLlocsLocalitats;
@@ -28,16 +27,14 @@ public class QCHParser
 	/**
 	 * Constants
 	 */
-	final static String ARTISTA_PARAM 				= "artista=";
-	final static String LLOC_PARAM 					= "lloc=";
-	final static String CARREGALLOCS_PARAM 			= "carregaCalLlocs";
-	final static String DOCUMENTS_PARAM				= "doc";
-	final static String REFRESH_URL_PARAM   		= "refreshurls";
-	final static String CARGA_ARTISTAS_FROM_MONGO 	= "cargaArtistaDeMongo";
+	static final String ARTISTA_PARAM 				= "artista=";
+	static final String LLOC_PARAM 					= "lloc=";
+	static final String CARREGALLOCS_PARAM 			= "carregaCalLlocs";
+	static final String DOCUMENTS_PARAM				= "doc";
+	static final String REFRESH_URL_PARAM   		= "refreshurls";
+	static final String CARGA_ARTISTAS_FROM_MONGO 	= "cargaArtistaDeMongo";
 	
-	final static Logger logger 		= Logger.getLogger(QCHParser.class);
-	public static String artistaStr = null;
-	public static String llocStr 	= null;
+	static final Logger logger 		= Logger.getLogger(QCHParser.class);
 	
 	
 	/**
@@ -47,8 +44,6 @@ public class QCHParser
 	 */
     public static void main( String[] args )
     {
-    	
-    	String test = "";
     	
     	//Initzalització
         logger.info( "QCHParser: Iniciant" );
@@ -64,6 +59,7 @@ public class QCHParser
         	Scanner scan = new Scanner(System.in);
         	s = scan.nextLine();
         	parametres(s);
+        	scan.close();
         }
         while(!s.trim().equalsIgnoreCase("fi"));
           
@@ -97,12 +93,11 @@ public class QCHParser
 	 * @param s
 	 */
     private static void parametres(String s) {
-    	int i = 0;
-		if ((i=s.indexOf(ARTISTA_PARAM)) > -1)
+		if ((s.indexOf(ARTISTA_PARAM)) > -1)
 		{
 			buscaArtistaAccio(s);
 		}
-		else if ((i=s.indexOf(LLOC_PARAM)) > -1)
+		else if ((s.indexOf(LLOC_PARAM)) > -1)
 		{
 			/*llocStr = (s.substring(i+"lloc=".length(), s.length())).trim();
 			ArtistaParsing lloc = Localitats.getLlocFromString(llocStr);
@@ -111,18 +106,18 @@ public class QCHParser
 			else
 				System.out.println("Trobat:"+lloc.getNm());*/
 		}
-		else if ((i=s.indexOf(CARREGALLOCS_PARAM)) > -1)
+		else if ((s.indexOf(CARREGALLOCS_PARAM)) > -1)
 		{
 			GeneradorLlocsLocalitats.generarLlocs();
 		}
-		else if ((i=s.indexOf(REFRESH_URL_PARAM)) > -1)
+		else if ((s.indexOf(REFRESH_URL_PARAM)) > -1)
 		{
 			//URLs d'artistes - comprovem si hi han canvis
 			List <Artiste> artistes = new ArtistesMongoDto().getArtistes();
 			
 			
-			for (Iterator iterator = artistes.iterator(); iterator.hasNext();) {
-				Artiste artiste = (Artiste) iterator.next();
+			for (Iterator<Artiste> iterator = artistes.iterator(); iterator.hasNext();) {
+				Artiste artiste =  iterator.next();
 				logger.info("Buscant Events en url:"+artiste.getUrl());
 				Artistes.getEventsFromArtistaURL(artiste);
 				
@@ -139,12 +134,12 @@ public class QCHParser
 			//URLs de llocs - comprovem si hi han canvis
 			
 		}
-		else if ((i=s.indexOf(CARGA_ARTISTAS_FROM_MONGO)) > -1)
+		else if ((s.indexOf(CARGA_ARTISTAS_FROM_MONGO)) > -1)
 		{
 			new ArtistesMongoDto().getArtistes();
 			
 		}
-		else if ((i=s.indexOf("?")) > -1)
+		else if ((s.indexOf('?')) > -1)
 		{
 			System.out.println
 			("********************** ACCIONS *************************************************");
@@ -159,10 +154,9 @@ public class QCHParser
 			System.out.println
 			("*********************************************************************************");
 		}
-		else if ((i=s.indexOf(DOCUMENTS_PARAM)) > -1)
+		else if ((s.indexOf(DOCUMENTS_PARAM)) > -1)
 		{
 	        logger.info( "QCHParser: Boti parser Iniciant" );
-	        String nomFitxer = "";
 	        /*BotiParser botiParser = new BotiParser(new DocumentBoti(nomFitxer));
 	        List<Event> listaEventsBoti = botiParser.getEvents();
 	        logger.info( "QCHParser: Events: "+listaEventsBoti.size() );
@@ -178,6 +172,7 @@ public class QCHParser
     //Accions /////////////////////////////////////////////////////////////////////
     protected static void buscaArtistaAccio(String s)
     {
+    	String artistaStr = null;
     	int i=s.indexOf(ARTISTA_PARAM);
 		artistaStr = (s.substring(i+ARTISTA_PARAM.length(), s.length())).trim();
 		Artiste artista = Artistes.getArtistaFromString(artistaStr);

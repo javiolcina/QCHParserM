@@ -48,7 +48,7 @@ public abstract class AbstractMongoDto {
 
 			// tell Morphia where to find your classes
 			// can be called multiple times with different packages or classes
-			 morphia.mapPackage("es.jaolve.QCHParserM.MongoDB.JPA");
+			 morphia.mapPackage("es.jaolve.qchparserm.MongoDB.JPA");
 
 			// create the Datastore connecting to the default port on the local host
 			datastore = morphia.createDatastore(mongoClient, "QCH");
