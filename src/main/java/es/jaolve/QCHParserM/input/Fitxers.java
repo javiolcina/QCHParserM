@@ -8,12 +8,12 @@ package es.jaolve.QCHParserM.input;
  */
 public class Fitxers {
 	public static String MUNICIPIOS_FILE = 
-			"E:\\jolcina\\fuentes\\workspaceJava2017\\QCHParserM\\src\\main\\localitats\\municipios.json";
+			".\\src\\main\\resources\\localitats\\municipios.json";
 	public static String LOCATIONS_FILE	 = 
-			"E:\\jolcina\\fuentes\\workspaceJava2017\\QCHParserM\\src\\main\\calandar\\locations.txt";
+			".\\src\\main\\resources\\calandar\\locations.txt";
 	public static String LOCATIONSTOT_FILE	 = 
-			"E:\\jolcina\\fuentes\\workspaceJava2017\\QCHParserM\\src\\main\\calandar\\locationsTot.txt";
+			".\\src\\main\\resources\\calandar\\locationsTot.txt";
 	public static String VIES_FILE	 = 
-			"E:\\jolcina\\fuentes\\workspaceJava2017\\QCHParserM\\src\\main\\localitats\\vias.txt";
+			".\\src\\main\\resources\\localitats\\vias.txt";
 
 }
